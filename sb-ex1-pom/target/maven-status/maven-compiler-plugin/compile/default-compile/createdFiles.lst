@@ -1,0 +1,3 @@
+org\pratap\ws\Application.class
+org\pratap\ws\web\api\GreetingController.class
+org\pratap\ws\model\Greeting.class
