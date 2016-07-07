@@ -1,0 +1,3 @@
+INSERT INTO OsDetails(seqNo,regNo,osArchitecture,noOfProcessorsAvailable,osName,sysLoadAverage,osVersion) VALUES(1,'REG00A0','osArch-001',17,'MacOS',10.6754,'X-09');
+INSERT INTO OsDetails(seqNo,regNo,osArchitecture,noOfProcessorsAvailable,osName,sysLoadAverage,osVersion) VALUES(2,'REG00A1','osArch-002',15,'TGen',16.0088,'V-02-RE');
+INSERT INTO OsDetails(seqNo,regNo,osArchitecture,noOfProcessorsAvailable,osName,sysLoadAverage,osVersion) VALUES(3,'REG00A2','osArch-003',10,'Linux',20.4408,'16.0.3RE');
