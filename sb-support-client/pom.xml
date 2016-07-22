@@ -130,4 +130,43 @@
 	</dependencies>
 
 
+	<repositories>
+		<repository>
+			<id>HP CAS REPO1</id>
+			<name>Public</name>
+			<url>http://repo1.core.hpecorp.net/nexus/content/groups/public</url>
+			<!-- <url>http://repo1.corp.hp.com/nexus/content/groups/public</url> -->
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>interval:15</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>interval:15</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>HP CAS REPO1</id>
+			<name>Public</name>
+			<url>http://repo1.core.hpecorp.net/nexus/content/groups/public</url>
+			<!-- <url>http://repo1.corp.hp.com/nexus/content/groups/public</url> -->
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>interval:15</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>interval:15</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
 </project>

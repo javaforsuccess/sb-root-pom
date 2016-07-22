@@ -30,31 +30,46 @@ public class TestWS implements Runnable
 		createGreeting();
 	}
 
+
 	private void createGreeting() {
 		System.out.println("---------------------[ createGreeting() ]------------------");
 		final String uri = server + "/api/greetings/";
-		
-		Greeting greeting = new Greeting();
-		greeting.setText("AURVINDO");
-		
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application","json"));
 
-		
-		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("id", 4);
-		
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri);
+
+		Greeting greeting = new Greeting();
+		greeting.setText("SIVA");
 		HttpEntity<?> entity = new HttpEntity<Object>(greeting);
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		
+
+		ResponseEntity<String> response = null;
+		response = restTemplate.exchange(uriComponentsBuilder.build().encode().toUri(), HttpMethod.POST, entity, String.class);
+		System.out.println(response);
+	}
+	/*private void createGreeting() {
+		System.out.println("---------------------[ createGreeting() ]------------------");
+		final String uri = server + "/api/greetings/";
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application","json"));
+
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("id", 4);
+
+		Greeting greeting = new Greeting();
+		greeting.setText("AURVINDO");
+		HttpEntity<?> entity = new HttpEntity<Object>(greeting);
+
+		RestTemplate restTemplate = new RestTemplate();
+
 		ResponseEntity<Greeting> response = null;
-
 		response = restTemplate.exchange(uriComponentsBuilder.build().encode().toUri(), HttpMethod.POST, entity, Greeting.class);
-
 		System.out.println(response);
 
-	}
+	}*/
 
 	private void testGetGreeting(int id) {
 		System.out.println("---------------------[ testGetGreeting(id) ]------------------");
