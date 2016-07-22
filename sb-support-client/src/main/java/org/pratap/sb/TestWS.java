@@ -1,6 +1,9 @@
 package org.pratap.sb;
 
+import java.awt.List;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.pratap.sb.model.Greeting;
 import org.springframework.http.HttpEntity;
@@ -31,23 +34,23 @@ public class TestWS implements Runnable
 		System.out.println("---------------------[ createGreeting() ]------------------");
 		final String uri = server + "/api/greetings/";
 		
-		RestTemplate restTemplate = new RestTemplate();
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-		headers.add("Content-Type", "application/json;charset=UTF-8");
-
 		Greeting greeting = new Greeting();
 		greeting.setText("AURVINDO");
 		
-		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("greeting", greeting);
 
-		//HttpEntity<?> entity = new HttpEntity<Object>(headers);
-		HttpEntity<MultiValueMap<BigInteger, Greeting>> requestEntity = new HttpEntity<MultiValueMap<BigInteger, Greeting>>(5, greeting);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application","json"));
+
 		
-		ResponseEntity<String> response = null;
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("id", 4);
+		
+		HttpEntity<?> entity = new HttpEntity<Object>(greeting);
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		ResponseEntity<Greeting> response = null;
 
-		response = restTemplate.exchange(uriComponentsBuilder.build().encode().toUri(), HttpMethod.POST, entity, String.class);
+		response = restTemplate.exchange(uriComponentsBuilder.build().encode().toUri(), HttpMethod.POST, entity, Greeting.class);
 
 		System.out.println(response);
 
