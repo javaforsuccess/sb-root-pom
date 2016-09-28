@@ -28,8 +28,33 @@ public class TestWS implements Runnable
 		testGetGreetings();
 		testGetGreeting(2);
 		createGreeting();
+		updateGreeting();
 	}
 
+	
+	
+	private void updateGreeting(){
+		System.out.println("---------------------[ updateGreeting() ]------------------");
+		final String uri = server + "/api/greetings/2";
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application","json"));
+		
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(uri);
+		
+		Greeting greeting = new Greeting();
+		BigInteger id = BigInteger.ONE;
+		//id = id.add(BigInteger.ONE);
+		id = id.add(BigInteger.ONE);
+		greeting.setId(id);
+		greeting.setText("PAWAN");
+		HttpEntity<?> entity = new HttpEntity<Object>(greeting);
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		ResponseEntity<String> response = null;
+		response = restTemplate.exchange(uriComponentsBuilder.build().encode().toUri(), HttpMethod.PUT, entity, String.class);
+	}
 
 	private void createGreeting() {
 		System.out.println("---------------------[ createGreeting() ]------------------");
