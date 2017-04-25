@@ -1,0 +1,2 @@
+DROP TABLE OsDetails IF EXISTS;
+CREATE TABLE OsDetails( seqNo number(19) primary key,regNo varchar(50),osArchitecture varchar(50),noOfProcessorsAvailable int,osName varchar(40),sysLoadAverage decimal(10,4),osVersion varchar(30));
